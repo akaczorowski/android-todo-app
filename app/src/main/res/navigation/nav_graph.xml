@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/AFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="pl.akac.android.todo.MainActivity"
+        android:label="MainActivity"
+        tools:layout="@layout/activity_main">
+        <argument
+            android:name="URI"
+            android:defaultValue="empty"
+            app:argType="string"
+            app:nullable="true" />
+    </activity>
+
+    <fragment
+        android:id="@+id/AFragment"
+        android:name="pl.akac.android.todo.AFragment"
+        android:label="fragment_a"
+        tools:layout="@layout/fragment_a" />
+
+    <fragment
+        android:id="@+id/BFragment"
+        android:name="pl.akac.android.todo.BFragment"
+        android:label="fragment_b"
+        tools:layout="@layout/fragment_b">
+        <argument
+            android:name="myArg1"
+            app:argType="string" />
+        <argument
+            android:name="myArg2"
+            app:argType="string" />
+
+        <deepLink app:uri="todoapp://bfragment/{myArg1}/{myArg2}" />
+    </fragment>
+</navigation>
